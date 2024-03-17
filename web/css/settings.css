@@ -1,0 +1,184 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+header {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+nav {
+  background-color: #4caf50;
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background-color: #4caf50;
+}
+
+nav ul li a:hover {
+  background-color: #45a049;
+}
+
+
+footer {
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 15px 5px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
+
+.data-holder{
+  width: 80%;
+  height: 50px;
+  display: flex;
+  padding: 5px 5px;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  border-radius: 10px;
+  margin: 15px;
+  box-shadow: 0px 0px 5px 0px rgba(116, 114, 114, 0.75);
+  align-items: center;
+}
+
+.holder{
+  padding: 2px 2px;
+  font-size: 24px;
+  margin: 2px;
+  border-radius: 3px;
+}
+
+#location{
+  width: 20%;
+  background-color: aqua;
+}
+
+#url{
+  width: 45%;
+  background-color: antiquewhite;
+}
+
+#date{
+  width: 15%;
+  background-color: aquamarine;
+}
+
+#id{
+  display: flex;
+  justify-content: center;
+  width: 2%;
+  background-color: aqua;
+  align-items: center;
+
+}
+
+.save-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  #ffffcc;
+  width: 4%;
+  height: 90%;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+.save-button:hover{
+  transform: scale(1.1);
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.delete-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  #ff8080;
+  width: 4%;
+  height: 90%;
+  margin: 3px;
+  border-radius: 3px;
+}
+
+.delete-button:hover{
+  transform: scale(1.1);
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  margin: 30px;
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.button-container:hover{
+  background-color: #45a049;
+  cursor: pointer;
+}
+
+.add-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 15px 5px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
