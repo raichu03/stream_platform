@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link rel="stylesheet" type="text/css" href="../css/singleFeed.css">
+
+  </head>
+  <body>
+    <header>
+      <h1>Map View</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="../html/index.html">Home</a></li>
+        <li><a href="../html/feed.html" class="active">Live Feed</a></li>
+        <li><a href="../html/settings.html">Settings</a></li>
+        <li><a href="../html/map.html">Map View</a></li>
+      </ul>
+    </nav>
+
+    <main>
+        
+        <div class="map" id="map"></div>
+
+    </main>
+
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <script src="../js/map.js"></script>
+
+    <footer>
+      <p>&copy; 2024 Animal Detection Team</p>
+    </footer>
+
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        L.mapquest.key = 'Xrg3DNLzxNwXUy0NK1GZD0g7W7dfOZNj';
+
+        var map = L.mapquest.map('map', {
+          center: [27.648863, 85.623033],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 14
+        });
+
+        map.addControl(L.mapquest.control());
+      }
+    </script>
+  </head>
+
+  <body style="border: 0; margin: 0;">
+    <div id="map" style="width: 100%; height: 530px;"></div>
+  </body>
+</html>
