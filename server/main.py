@@ -7,9 +7,12 @@ import model
 from database import SessionLocal, engine
 from sqlalchemy.orm import Session
 import cv2
+from detection import detection
 
-
+detector = detection()
 app = FastAPI()
+
+
 
 model.Base.metadata.create_all(bind=engine)
 
@@ -45,7 +48,6 @@ async def root(db: Session = Depends(get_db)):
 
 
 
-# video_path = "../data/tiger.mp4"
 
 def generate_frames(video_path):
     camera = cv2.VideoCapture(video_path)
@@ -54,6 +56,8 @@ def generate_frames(video_path):
         if not success:
             break
         else:
+            boxes, scores, classe = detector.predict(frame)
+            frame = detector.visual(frame, boxes, classe, scores)
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
@@ -65,8 +69,7 @@ async def streamer(stream_id:int, db: Session = Depends(get_db)):
     streams = db.query(model.Stream).all()
     for stream in streams:
         url_list.append(stream.url)
-    # print("streaming", url_list[stream_id])
-    # return stream_id
+
 
     return StreamingResponse(generate_frames(url_list[stream_id]), media_type="multipart/x-mixed-replace; boundary=frame")
 
