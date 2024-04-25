@@ -22,10 +22,10 @@ h1 {
 
 nav {
     background-color: #4caf50;
-    /* Light green */
     padding: 10px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -53,12 +53,6 @@ nav ul li a:hover {
     background-color: #45a049;
 }
 
-.map{
-    height: 100%;
-    width: 100%;
-
-}
-
 
 footer {
     color: #333;
@@ -71,4 +65,9 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+#map {
+    height: 1000px;
+    width: 100%;
 }

@@ -9,7 +9,10 @@ from sqlalchemy.orm import Session
 import cv2
 from detection import detection
 
-detector = detection()
+## initializes the object detection model
+# detector = detection()
+
+## starts the web app
 app = FastAPI()
 
 
@@ -56,8 +59,8 @@ def generate_frames(video_path):
         if not success:
             break
         else:
-            boxes, scores, classe = detector.predict(frame)
-            frame = detector.visual(frame, boxes, classe, scores)
+            # boxes, scores, classe = detector.predict(frame)
+            # frame = detector.visual(frame, boxes, classe, scores)
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
@@ -115,3 +118,12 @@ async def delete_stream(stream_id: int, db: Session = Depends(get_db)):
     db.commit()
 
     return {"message": "stream deleted successfully"}
+
+
+
+
+###### return the location of the cameras where object was detected ######
+@app.get("/locations")
+async def get_locations():
+    myList = [[51.5, -0.09],[51.51, -0.091],[51.52, -0.092]]
+    return myList
