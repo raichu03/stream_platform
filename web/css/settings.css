@@ -102,6 +102,20 @@ main {
 #location{
   width: 20%;
   background-color: aqua;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#lat{
+  width: 50%;
+  height: 100%;
+  background-color: brown;
+}
+
+#long{
+  width: 50%;
+  height: 100%;
+  background-color: burlywood;
 }
 
 #url{

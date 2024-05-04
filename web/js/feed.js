@@ -12,11 +12,11 @@ function create_html(total){
   for (var i = 0; i < total; i++) {
     const myHtml = elementFromHtml(`
       <div class="level-showcase" onclick="singleFeed(event)">
-        <dev class="video-hadler">
+        <div class="video-hadler">
           <div class="video-item">
             <img src="http://127.0.0.1:8000/video/${i}">
           </div>
-        </dev>
+        </div>
       </div>
   `);
     feed.appendChild(myHtml);

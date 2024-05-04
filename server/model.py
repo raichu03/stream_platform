@@ -7,5 +7,15 @@ class Stream(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     url = Column(String)
-    location = Column(String)
+    lat = Column(Integer)
+    long = Column(Integer)
+    date = Column(String)
+
+class Location(Base):
+    __tablename__ = "locations"
+
+    id = Column(Integer, primary_key=True, index=True)
+    classe = Column(String)
+    lat = Column(Integer)
+    long = Column(Integer)
     date = Column(String)

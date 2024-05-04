@@ -11,14 +11,18 @@ function create_html(data){
 
   for (var i = 0; i < data.length; i++) {
         
-    loc = data[i].location;
+    lat = data[i].lat;
+    long = data[i].long;
     url = data[i].url;
     date = data[i].date;
     id = data[i].id;
 
     const myHtml = elementFromHtml(`
       <div class="data-holder">
-        <div class="holder" id="location" contenteditable="true">${loc}</div>
+        <div class="holder" id="location" contenteditable="true">
+          <div id="lat">${lat}</div>
+          <div id="long">${long}</div>
+        </div>
         <div class="holder" id="url" contenteditable="true">${url}</div>
         <div class="holder" id="date" contenteditable="true">${date}</div>
         <div class="holder" id="id">${id}</div>
@@ -45,7 +49,10 @@ function addNew(){
   console.log("addData");
   const myHtml = elementFromHtml(`
       <div class="data-holder">
-        <div class="holder" id="location" contenteditable="true">add location</div>
+        <div class="holder" id="location" contenteditable="true">
+          <div id="lat">lat</div>
+          <div id="long">long</div>
+        </div>
         <div class="holder" id="url" contenteditable="true">add video</div>
         <div class="holder" id="date" contenteditable="true">add date</div>
         <div class="save-button" onclick="addData(this)">Save</div>
@@ -82,14 +89,16 @@ function put_data(data, id){
 
 function update_data(element) {
   const data = element.parentElement;
-  const location = data.querySelector('#location').textContent;
   const url = data.querySelector('#url').textContent;
+  const lat = data.querySelector('#lat').textContent;
+  const long = data.querySelector('#long').textContent;
   const date = data.querySelector('#date').textContent;
   const id = data.querySelector('#id').textContent;
 
   const upload = {
     "url": url,
-    "location": location,
+    "lat": lat,
+    "long": long,
     "date": date
   }
   put_data(upload, id);
@@ -122,13 +131,15 @@ function post_data(data){
 
 function addData(element) {
   const data = element.parentElement;
-  const location = data.querySelector('#location').textContent;
+  const lat = data.querySelector('#lat').textContent;
+  const long = data.querySelector('#long').textContent;
   const url = data.querySelector('#url').textContent;
   const date = data.querySelector('#date').textContent;
 
   const upload = {
     "url": url,
-    "location": location,
+    "lat": lat,
+    "long": long,
     "date": date
   }
   post_data(upload);

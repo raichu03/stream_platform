@@ -3,7 +3,7 @@
 window.onload = function() {
 
     /////// create a map and set the view to a specific location //////
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([27.647621, 85.620282], 14);
     var marker;
 
     /////// add a tile layer to the map //////
@@ -19,9 +19,8 @@ window.onload = function() {
     }).then(data => {
 
         data.forEach(element => {
-            // console.log(element[0]);
-            marker = L.marker([element[0], element[1]], {alt: 'locator'}).addTo(map)
-            .bindPopup('This is a auto-generated location');
+            marker = L.marker([element['lat'], element['long']], {alt: 'locator'}).addTo(map)
+            .bindPopup(`${element['classe']} was detected at ${element['date']}`);
         });
     })
 
